@@ -12,14 +12,15 @@
   "bugs": {
     "url": "https://github.com/shd101wyy/vscode-markdown-preview-enhanced/issues"
   },
-  "repository": "https://github.com/shd101wyy/vscode-markdown-preview-enhanced",
+  "repository": "https://github.com/BlueHamBuger/vscode-markdown-preview-enhanced",
   "license": "NCSA",
   "contributors": [
     "shd101wyy",
     "kachkaev",
-    "gabyx"
+    "gabyx",
+    "blueburger"
   ],
-  "publisher": "shd101wyy",
+  "publisher": "blueburger",
   "main": "./out/src/extension",
   "scripts": {
     "check": "npm run check:eslint && npm run check:prettier && npm run check:tsc && npm run check:tslint",
@@ -547,7 +548,7 @@
     ]
   },
   "dependencies": {
-    "@shd101wyy/mume": "0.7.1",
+    "@shd101wyy/mume": "../mume/packaged/package",
     "@types/vfile": "^3.0.2"
   },
   "devDependencies": {
@@ -556,6 +557,7 @@
     "@types/mocha": "^5.2.5",
     "@types/node": "^11.11.0",
     "@types/vscode": "1.40.0",
+    "esbuild": "^0.14.53",
     "eslint": "^5.15.1",
     "husky": "^3.0.9",
     "lint-staged": "^9.4.2",

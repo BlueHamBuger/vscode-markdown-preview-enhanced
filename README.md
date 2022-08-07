@@ -15,7 +15,7 @@
 <a href="https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced">vscode</a>
 <br>
 <br>
-  <a href="https://a.paddle.com/v2/click/16413/111548?link=1227"><img src="https://img.shields.io/badge/LEARN-VSCODE%20POWER%20USER%20COURSE%20%E2%86%92-gray.svg?colorB=4D2AFF" alt="Become VSCode Power User"></a>
+<a href="https://a.paddle.com/v2/click/16413/111548?link=1227"><img src="https://img.shields.io/badge/LEARN-VSCODE%20POWER%20USER%20COURSE%20%E2%86%92-gray.svg?colorB=4D2AFF" alt="Become VSCode Power User"></a>
 </p>
 
 If you are interested, please try out our new prototype web app: [0xGG/crossnote](https://github.com/0xGG/crossnote)
@@ -32,7 +32,7 @@ Manage pull requests and conduct code reviews in your IDE with full source-tree 
 <br>
 
 <a href="https://github.com/sponsors/shd101wyy">
-  <img src="https://github.blog/wp-content/uploads/2019/05/mona-heart-featured.png?" width="200"></a><br>
+<img src="https://github.blog/wp-content/uploads/2019/05/mona-heart-featured.png?" width="200"></a><br>
 
 These [GitHub Sponsors](https://github.com/sponsors/shd101wyy#sponsors) and [Backers](https://shd101wyy.github.io/markdown-preview-enhanced/#/backers) help push this project forward 🎉.
 
@@ -78,3 +78,24 @@ Please check the [Releases](https://github.com/shd101wyy/vscode-markdown-preview
 ## License
 
 [University of Illinois/NCSA Open Source License](LICENSE.md)
+
+## Burger Modified
+
+1.  关于 bundle，由于插件用了字符串来直接索引脚本（主要也是因为需要渲染 html）,所以需要一些额外的修改 ;
+    1. `extensionDirectoryPath` 这个路径 bundle 之后不太正确
+    2. package.json 当然改了，但是发现还是手动 run 比较好，
+       因为这里对打包后的 js 有修改
+    ```json
+    	"watch": "tsc -watch -p ./",
+    	"esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+    	"esbuild": "npm run esbuild-base -- --sourcemap",
+    	"esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+    	"test-compile": "tsc -p ./"
+    ```
+    1.  .vscodeignore ，发现有很多多余的东西。。。
+
+            !!!
+            	暂时关闭 因为发现有些功能失效的情况，
+2.  pending:
+    1. 关于跳转有时会失效的问题
+    2. 继续完成 bundle
